@@ -1,6 +1,7 @@
 package io.proj3ct.SpringDemoBot.service;
 
 
+import com.vdurmont.emoji.EmojiParser;
 import io.proj3ct.SpringDemoBot.config.BotConfig;
 import io.proj3ct.SpringDemoBot.model.User;
 import io.proj3ct.SpringDemoBot.model.UserRepository;
@@ -112,7 +113,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     private void startCommandReceived(long chatId, String name) {
 
 
-        String answer = "Hi, " + name + ", nice to meet you!";
+        String answer = EmojiParser.parseToUnicode("Hi, " + name + ", nice to meet you!" + " :blush:");
+        //String answer = "Hi, " + name + ", nice to meet you!";
         log.info("Replied to user " + name);
 
 
